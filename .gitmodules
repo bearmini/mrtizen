@@ -1,3 +1,6 @@
 [submodule "vendor/mruby"]
 	path = vendor/mruby
 	url = git@github.com:bearmini/mruby.git
+[submodule "vendor/mrubybind"]
+	path = vendor/mrubybind
+	url = https://github.com/ktaobo/mrubybind.git
