@@ -88,7 +88,10 @@ endif
 
 
 # All Target
-all: $(ARTIFACT) secondary-outputs
+all: output-directory $(ARTIFACT) secondary-outputs
+
+output-directory:
+	mkdir -p src
 
 LIBS = -lmruby -lpthread -losp-uifw -losp-appfw -losp-image -losp-json -losp-ime -losp-net -lpthread -losp-content -losp-locations -losp-telephony -losp-uix -losp-media -losp-messaging -losp-web -losp-social -losp-wifi -losp-bluetooth -losp-nfc -losp-face -losp-speech-tts -losp-shell -losp-shell-core -losp-speech-stt -losp-vision -lxml2
 
