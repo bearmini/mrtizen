@@ -1,0 +1,16 @@
+author-signature.xml
+bin/
+bin/MrtizenExampleService.exe
+data/
+data/mrtizen-example.rb
+info/
+info/manifest.xml
+lib/
+res/
+shared/
+shared/data/
+shared/res/
+shared/res/screen-density-xhigh/
+shared/res/screen-density-xhigh/mainmenu.png
+shared/trusted/
+signature1.xml

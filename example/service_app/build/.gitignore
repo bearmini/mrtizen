@@ -1,0 +1,6 @@
+.tpk/
+src/
+*.tpk
+*.exe
+*.exe.map
+
