@@ -4,3 +4,5 @@ def hello_world
 end
 
 hello_world
+
+app_log_debug "hello, world"

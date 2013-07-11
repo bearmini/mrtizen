@@ -69,6 +69,18 @@ extern "C"
     }
 }
 
+mrb_value
+AppLogDebug_wrap(mrb_state* mrb, mrb_value self)
+{
+    char* message;
+    int message_len;
+    mrb_get_args(mrb, "s", &message, &message_len);
+
+    AppLogDebug(message);
+
+    return mrb_nil_value();
+}
+
 bool
 MrtizenServiceApp::OnAppInitialized(void)
 {
@@ -85,6 +97,8 @@ MrtizenServiceApp::OnAppInitialized(void)
 
         mrubybind::MrubyBind b(mrb);
         b.bind("mruby_bind_test1", mruby_bind_test1);
+
+        mrb_define_method(mrb, mrb->kernel_module, "app_log_debug", AppLogDebug_wrap, MRB_ARGS_REQ(1));
 
 		mrb_load_file(mrb, f);
 

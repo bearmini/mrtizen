@@ -1,6 +1,6 @@
 
 PACKAGE_ID = $(shell cat .package_id)
-ARTIFACT=MrtizenExampleService.exe
+ARTIFACT = MrtizenExampleService.exe
 
 -include ../makefile.init
 
@@ -42,6 +42,7 @@ CPP_SRCS += $(CPP_FILES)
 OBJS += $(patsubst ../src/%.cpp,./src/%.o,$(CPP_FILES))
 CPP_DEPS += $(patsubst ../src/%.cpp,./src/%.d,$(CPP_FILES))
 
+CFLAGS = -O0 -g3 -Wall -fmessage-length=0 -fPIE
 DFLAGS = -D_DEBUG -D_APP_LOG
 IFLAGS = -I"$(PROJPATH)/inc"
 IFLAGS+= -I"$(PROJPATH)/../../vendor/mruby/include"
@@ -55,7 +56,7 @@ IFLAGS+= -I"$(ROOTSTRAP)/usr/include/libxml2"
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: C++ Compiler'
-	$(CC) $(DFLAGS) $(IFLAGS) -O0 -g3 -Wall -c -fmessage-length=0 $(TC_COMPILER_MISC) -fPIE --sysroot="$(ROOTSTRAP)" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	$(CC) -c $(CFLAGS) $(DFLAGS) $(IFLAGS) $(TC_COMPILER_MISC) --sysroot="$(ROOTSTRAP)" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
